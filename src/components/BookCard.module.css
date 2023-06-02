@@ -1,0 +1,37 @@
+.book_card{
+    width:421px;
+    margin-bottom:71px;
+    padding:8px 12px; 
+}
+.book_card.opened{
+    margin-bottom:30px;
+}
+.main_info_box{
+    display:flex;
+}
+.main_info{
+    width:389px;
+    display:flex;
+    gap:28px;
+}
+.info_box{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:9px;
+}
+.info_text{
+    margin:0;
+}
+.title{
+    font-size:20px;
+}
+.author{
+    font-size:14px;
+}
+.price{
+    font-size:16px;
+}
+.date{
+    font-size:12px;
+}
