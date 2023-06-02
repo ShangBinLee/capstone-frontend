@@ -1,0 +1,20 @@
+.detail_info{
+    border-top:1px solid grey;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:9px;
+    margin-top:12px;
+}
+.detail_info_text{
+    font-size:12px;
+    max-width:90px;
+    text-align:center;
+}
+.bold{
+    font-weight:bold;
+}
+.seller_rating{
+    display:flex;
+    gap:7px;
+}
