@@ -1,0 +1,15 @@
+.toggle_arrow{
+    display:flex;
+    align-items:flex-end;
+}
+.btn_toggle_detail{
+    cursor:pointer;
+    width:32px;
+    height:32px;
+    padding:0px;
+    border:0;
+    background-color:inherit;
+}
+.fold{
+    transform:rotateX(180deg);
+}
