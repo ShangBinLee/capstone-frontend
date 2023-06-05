@@ -7,8 +7,12 @@ import Emailauthrequ from './pages/EmailAuthrequ.js';
 import Emailauthnum from './pages/EmailAuthnum.js';
 import Footer from './headfoot/footer.js';
 import Header from './headfoot/header.js'
-import Album from './pages/boardpage.js';
+import Boardpage from './pages/boardpage.js';
 import BookCard from './components/BookCard.js';
+import SelectLabels from './pages/Selectlabel.js';
+import Searchbar from './pages/Searchbar.js';
+import Searchpage from './pages/Searchpage.js';
+import Detail from './pages/Detailpage.js';
 // import Card from "./pages/Card.js"
 
 const bookCardInfoSample = {
@@ -45,9 +49,15 @@ function App() {
     {/* <Emailauthrequ/> */}
     {/* <Emailauthnum/> */}
     {/* <Album/> */}
-      {/* <Album/> */}
+      {/* <Boardpage/> */}
       {/* {<BookCard bookCardInfo={bookCardInfoSample} />} */}
-      <Footer/>
+      {/* <Footer/> */}
+    <Boardpage bookCardInfo={bookCardInfoSample}/>
+    {/* <Detail/> */}
+    {/* <Searchbar/> */}
+    {/* <Grid item><Searchpage/></Grid> */}
+    
+    <Footer/>
     </Grid>
   );
 }
