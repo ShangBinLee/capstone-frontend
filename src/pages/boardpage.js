@@ -14,12 +14,12 @@ import Card from './Card.js'
 import Pagenation from './Pagenation.js'
 import BookCard from '../components/BookCard.js';
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8]; //한 페이지당 card 9개
+const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Album({ bookCardInfo }) {
+export default function Boardpage({ bookCardInfo }) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <main>
