@@ -12,23 +12,24 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Card from './Card.js'
 import Pagenation from './Pagenation.js'
+import BookCard from '../components/BookCard.js';
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8]; //한 페이지당 card 9개
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Album() {
+export default function Album({ bookCardInfo }) {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <main sx={{maxWidth:"1024px", minHeight:"1131px"}}>
+      <main>
         {/* Hero unit */}
-        <Container sx={{ py: 8 }} maxWidth="md">
+        <Container sx={{ py: 8}} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={3} md={6}>
-                <Card/>
+                <BookCard bookCardInfo={bookCardInfo}/>
               </Grid>
             ))}
           </Grid>
