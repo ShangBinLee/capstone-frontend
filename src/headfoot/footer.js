@@ -5,16 +5,31 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import ListRoundedIcon from '@mui/icons-material/ListRounded';
 import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
+import Boardpage from '../pages/boardpage.js';
+import bookCardInfoSample from '../pages/bookCardInfoSample.js';
+import { Link } from '@mui/material';
+import Signin from '../pages/Signin';
 
 function Footer() {
     // const [value, setValue] = React.useState('recents');
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = React.useState('/');
   
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
-  
-    return (
+
+    const handlePageChange = (page) => {
+      setValue(page);
+    }
+
+      return ( 
+      <div>
+      {/* 라우팅하는 페이지 */}
+      {value === '/' && <Boardpage bookCardInfo={bookCardInfoSample}/> }
+      {/* {value === 'Chatting' && <Favorites />}
+      {value === 'List' && <Location />}
+      {value === 'Mypage' && <Location />} */}
+
       <BottomNavigation sx={{
         position:"fixed",
         bottom:0,
@@ -29,6 +44,7 @@ function Footer() {
           value="home"
           sx={{maxWidth:"256px", minWidth:"256px", borderRight: "1px solid black" }}
           icon={<HomeRoundedIcon />}
+          onClick={() => handlePageChange('/')}
         />
         <BottomNavigationAction
           label="Chatting"
@@ -49,6 +65,7 @@ function Footer() {
           icon={<AccountCircleRoundedIcon />}
         />
         </BottomNavigation>
+        </div>
     );
   }
 
