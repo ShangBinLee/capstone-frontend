@@ -87,3 +87,10 @@ main {
     left:0;
     right:0;
 }
+
+.app-router {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
