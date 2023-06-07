@@ -1,18 +1,23 @@
 import React from 'react'
 import TextField from '@mui/material/TextField';
-import Checkbox from '@mui/material/Checkbox'
 import Button from '@mui/material/Button';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Link from '@mui/material/Link';
+// import { Link } from 'react-router-dom';
+// import Link from '@mui/material/Link';
+import { Link, useHistory } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Emailauthrequ from './EmailAuthrequ.js';
 
 
 const Signin=()=>{
+  const goToPage= () => {
+    window.location.href = <Emailauthrequ/>;
+  };
+
 	return(
 		<Container component="main" maxWidth="xs">
       <Box
@@ -53,7 +58,8 @@ const Signin=()=>{
       </Button>
       <Grid container direction="row">
         <Grid item>
-          <Link color="#000000" href='#'>회원가입</Link>
+          <Link to="/emailauthrequ">회원가입</Link>
+          {/* <a href="./EmailAuthrequ.js" onClick={goToPage} style={{ textDecoration: 'none', color: 'inherit' }}>회원가입</a> */}
         </Grid>
       </Grid>
       </Box>
