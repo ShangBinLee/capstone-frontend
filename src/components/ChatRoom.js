@@ -29,9 +29,13 @@ const ChatRoom = ({ chatRoomInfo }) => {
     } = lastChat;
 
     const now = dayjs();
-    const createDate = dayjs(create_date);
+    const createDate = create_date === null ? '' : dayjs(create_date);
 
     const dateString = (() => {
+        if(createDate === '') {
+            return '';
+        }
+        
         if(now.isSame(createDate, 'day') === true) {
             return createDate.format('A HH:mm');
         } else if(now.isSame(createDate, 'year') === true) {
