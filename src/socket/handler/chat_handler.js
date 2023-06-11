@@ -16,7 +16,15 @@ const newChatHandler = ({ chat_id : id, ...others }) => {
     });
 };
 
+const offerPriceHandler = ({ chat_room_id : id, ...others }) =>{
+    db.offer.put({
+        id,
+        ...others
+    });
+};
+
 export {
     getChatHistory,
-    newChatHandler
+    newChatHandler,
+    offerPriceHandler
 };
