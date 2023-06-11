@@ -9,6 +9,14 @@ const getChatHistory = ({ chat_room_id, chat_history }) => {
     });
 };
 
+const newChatHandler = ({ chat_id : id, ...others }) => {
+    db.chat.put({
+        id,
+        ...others
+    });
+};
+
 export {
-    getChatHistory
+    getChatHistory,
+    newChatHandler
 };
