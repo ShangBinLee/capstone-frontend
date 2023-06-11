@@ -1,5 +1,5 @@
-import { db } from "../../DB/db";
-import { getChatRooms } from "../chat_room";
+import { db } from "../../DB/db.js";
+import { getChatHistory, getChatRooms } from "../chat_room.js";
 
 const connectChatRoomsHandler = ({ success, room_ids_fail }) => {
     if(success === true) {
@@ -7,8 +7,8 @@ const connectChatRoomsHandler = ({ success, room_ids_fail }) => {
     }
 };
 
-const getChatRoomsHandler = (chatRooms) => {
-    chatRooms.forEach(async ({
+const getChatRoomsHandler = async (chatRooms) => {
+    await Promise.all(chatRooms.map(async ({
         chat_room_id,
         modified_date,
 		product_id,
@@ -24,7 +24,9 @@ const getChatRoomsHandler = (chatRooms) => {
                 buyer_id
             });
         }
-    });
+    }));
+
+    getChatHistory();
 };
 
 const joinNewChatRoomHandler = ({ chat_room_id, buyer_id, ...others }) =>{
