@@ -29,6 +29,15 @@ const getChatRoomsHandler = async (chatRooms) => {
     getChatHistory();
 };
 
+const getChatHistoryHandler = ({ chat_room_id, chat_history }) => {
+    chat_history.forEach(({ chat_id : id, ...others}) =>{
+        db.chat.put({
+            id,
+            ...others
+        });
+    });
+};
+
 const joinNewChatRoomHandler = ({ chat_room_id, buyer_id, ...others }) =>{
     db.chat_room.put({
         id : chat_room_id,
@@ -47,6 +56,7 @@ const notificateNewChatRoomHandler = ({ chat_room_id : id, ...others }) => {
 export {
     connectChatRoomsHandler,
     getChatRoomsHandler,
+    getChatHistoryHandler,
     joinNewChatRoomHandler,
     notificateNewChatRoomHandler
 };
