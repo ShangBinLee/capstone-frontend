@@ -6,6 +6,12 @@ import { fetchAPIWithAuth } from "./fetch_api";
  */
 const fetchUserOfStudentId = async (studentId, rootUrl) => fetchAPIWithAuth(`${rootUrl}/api/user/info/${studentId}`);
 
+/**
+ * 중앙 서버 API를 통해 본 유저의 유저 정보를 조회함
+ */
+const fetchMyUserInfo = async (rootUrl) => fetchAPIWithAuth(`${rootUrl}/api/user/info`);
+
 export {
-  fetchUserOfStudentId
+  fetchUserOfStudentId,
+  fetchMyUserInfo
 };
