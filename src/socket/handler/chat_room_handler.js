@@ -35,8 +35,16 @@ const joinNewChatRoomHandler = ({ chat_room_id, buyer_id, ...others }) =>{
     });
 };
 
+const notificateNewChatRoomHandler = ({ chat_room_id : id, ...others }) => {
+    db.chat_room.put({
+        id,
+        ...others
+    });
+};
+
 export {
     connectChatRoomsHandler,
     getChatRoomsHandler,
-    joinNewChatRoomHandler
+    joinNewChatRoomHandler,
+    notificateNewChatRoomHandler
 };
