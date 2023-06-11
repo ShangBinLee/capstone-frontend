@@ -1,0 +1,11 @@
+.profile{
+    width:77.6%;
+    display:flex;
+    justify-content:center;
+    gap:6.1%;
+    height:14.2%;
+}
+.user_info{
+    min-width:45%;
+    max-width:55%;
+}
