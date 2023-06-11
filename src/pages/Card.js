@@ -10,9 +10,8 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { ListItem } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { Link, useNavigate} from 'react-router-dom';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -32,8 +31,14 @@ export default function RecipeReviewCard() {
     setExpanded(!expanded);
   };
 
+  const navigate = useNavigate();
+
+  const clickCardDetail = () => {
+    navigate('/detail');
+  }
+
   return (
-    <Card sx={{ maxWidth: "445px" }}>
+    <Card sx={{ maxWidth: "445px" }} onClick={clickCardDetail}>
       <Grid container spacing={2}>
         <Grid item>
         <CardMedia
@@ -58,9 +63,7 @@ export default function RecipeReviewCard() {
                 2023.04.16
               </Typography>
             </CardContent>
-            
           </Grid>
-          
         </Grid>
         
       </Grid>
@@ -74,8 +77,8 @@ export default function RecipeReviewCard() {
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
+      <Collapse in={expanded} timeout="auto" unmountOnExit >
+        <CardContent sx={{textAlign:"center", overflow: "scroll hidden", height:"10px" }}>
         <ul>
           <li>스마트융합대학</li>
 

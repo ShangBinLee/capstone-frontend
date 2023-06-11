@@ -15,21 +15,25 @@ import Searchbar from './pages/Searchbar.js';
 import Searchpage from './pages/Searchpage.js';
 import Detail from './pages/Detailpage.js';
 import ReactDOM from 'react-dom';
+import Mypage from './pages/Mypage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import Card from "./pages/Card.js"
 
 ReactDOM.render(
-  <Router>
-    {/* <App /> */}
-    <div className="app-router">
-    <Routes>
-      <Route exact path="/" element={<Signin/>} />
-      <Route exact path="/emailauthrequ" element={<Emailauthrequ/>} />
-      <Route path="/emailauthrnum" element={<Emailauthnum/>} />
-      <Route path="/boardpage" element={<Boardpage/>} />
-    </Routes>
-    </div>
-  </Router>,
+    <Router>
+      <div className="app-router">
+        <Routes>
+          <Route exact path="/" element={<Signin/>} />
+          <Route exact path="/emailauthrequ" element={<Emailauthrequ/>} />
+          <Route path="/emailauthnum" element={<Emailauthnum/>} />
+          <Route path="/signup" element={<Signup/>} />
+          <Route path="/boardpage" element={<Boardpage bookCardInfo={bookCardInfoSample}/>} />
+          <Route path="/detail" element={<Detail/>}/>
+          <Route path="/mypage" element={<Mypage/>}/>
+        </Routes>
+      </div>
+    </Router>
+  ,
   document.getElementById('root')
 );
 
