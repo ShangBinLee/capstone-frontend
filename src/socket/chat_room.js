@@ -40,8 +40,18 @@ const getChatHistory = async () => {
     socket.emit(eventName, message);
 };
 
+const joinNewChatRoom = (productId) => {
+    const eventName = 'join_new_chat_room';
+
+    socket.emit(eventName, {
+        product_id : productId,
+        authorization : localStorage.getItem('authorization')
+    });
+};
+
 export {
     connectChatRooms,
     getChatRooms,
-    getChatHistory
+    getChatHistory,
+    joinNewChatRoom
 };
