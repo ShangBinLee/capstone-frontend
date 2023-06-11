@@ -5,6 +5,11 @@ const connect = () => {
     socket.connect();
 };
 
+const disconnect = () => {
+    socket.disconnect();
+};
+
 export {
-    connect
+    connect,
+    disconnect
 };
