@@ -9,6 +9,17 @@ const sendNewChat = (chatRoomId, chatContent) => {
     });
 };
 
+const offerPrice = (chatRoomId, offerPrice) => {
+    const eventName = 'offer_price';
+
+
+    socket.emit(eventName, {
+        chat_room_id : chatRoomId,
+        offer_price : offerPrice,
+    });
+};
+
 export {
-    sendNewChat
+    sendNewChat,
+    offerPrice
 };
