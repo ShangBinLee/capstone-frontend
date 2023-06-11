@@ -27,7 +27,16 @@ const getChatRoomsHandler = (chatRooms) => {
     });
 };
 
+const joinNewChatRoomHandler = ({ chat_room_id, buyer_id, ...others }) =>{
+    db.chat_room.put({
+        id : chat_room_id,
+        buyer_id : buyer_id === undefined ? null : buyer_id,
+        ...others
+    });
+};
+
 export {
     connectChatRoomsHandler,
-    getChatRoomsHandler
+    getChatRoomsHandler,
+    joinNewChatRoomHandler
 };
