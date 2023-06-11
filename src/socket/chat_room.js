@@ -13,6 +13,11 @@ const connectChatRooms = async (rootUrl) => {
     });
 };
 
+const getChatRooms = () => {
+    socket.emit('get_chat_rooms');
+};
+
 export {
-    connectChatRooms
+    connectChatRooms,
+    getChatRooms
 };
