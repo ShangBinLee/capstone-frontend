@@ -12,7 +12,13 @@ const fetchSellerProductsAll = (rootUrl) => fetchAPIWithAuth(`${rootUrl}/api/sal
  */
 const fetchProduct = (productId, rootUrl) => fetchAPIWithAuth(`${rootUrl}/api/saleproduct/find/${productId}`);
 
+/**
+ * 중앙 서버 API를 통해 본 유저의 판매 상품을 전체 조회함
+ */
+const fetchMyProductsAll = (rootUrl) => fetchAPIWithAuth(`${rootUrl}/api/sale/product/find/my/product`);
+
 export {
   fetchSellerProductsAll,
-  fetchProduct
+  fetchProduct,
+  fetchMyProductsAll
 };
