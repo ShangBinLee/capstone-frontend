@@ -16,14 +16,14 @@
     min-height:50px;
 }
 .self{
-    flex-direction:row;
-    margin-right:4.4%;
-    align-self:flex-end;
-}
-.other{
     flex-direction:row-reverse;
     margin-left:4.4%;
     align-self:flex-start;
+}
+.other{
+    flex-direction:row;
+    margin-right:4.4%;
+    align-self:flex-end;
 }
 .date, .content{
     height:100%;
