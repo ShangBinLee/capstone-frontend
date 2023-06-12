@@ -1,0 +1,14 @@
+.wrapper{
+    display:flex;
+    justify-content:center;
+    gap:6.4%;
+    margin:5%;
+}
+.select{
+    width:24.4%;
+    height:50px;
+}
+.btn{
+    width:6.4%;
+    height:50px;
+}
