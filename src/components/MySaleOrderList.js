@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import MySaleOrder from "./MySaleOrder.js";
 import { fetchMyProductsAll } from "../lib/fetch_product.js";
 import { fetchMySaleOrder } from "../lib/fetch_order.js";
+import styles from './MyOrderList.module.css';
 
 const MySaleOrderList = ({ rootUrl }) => {
     const [ orders, setOrders ] = useState([]);
@@ -30,7 +31,11 @@ const MySaleOrderList = ({ rootUrl }) => {
         })()
     }, []);
 
-    return orders.map((order) => <MySaleOrder orderInfo={order} />);
+    return (
+        <div className={styles.wrapper}>
+            {orders.map((order) => <MySaleOrder orderInfo={order} />)}
+        </div>
+    );  
 };
 
 export default MySaleOrderList;
