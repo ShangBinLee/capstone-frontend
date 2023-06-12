@@ -7,25 +7,27 @@ import ListRoundedIcon from '@mui/icons-material/ListRounded';
 import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
 import Boardpage from '../pages/boardpage.js';
 import bookCardInfoSample from '../pages/bookCardInfoSample.js';
+import { useNavigate } from 'react-router-dom';
 import { Link } from '@mui/material';
 import Signin from '../pages/Signin';
 
 function Footer() {
     // const [value, setValue] = React.useState('recents');
+    const navigate = useNavigate();
     const [value, setValue] = React.useState('/');
   
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
+    // const handleChange = (event, newValue) => {
+    //   setValue(newValue);
+    // };
 
     const handlePageChange = (page) => {
-      setValue(page);
+      navigate(page);
     }
 
       return ( 
       <div>
       {/* 라우팅하는 페이지 */}
-      {value === '/' && <Boardpage bookCardInfo={bookCardInfoSample}/> }
+      {/* {value === '/' && <Boardpage bookCardInfo={bookCardInfoSample}/> } */}
       {/* {value === 'Chatting' && <Favorites />}
       {value === 'List' && <Location />}
       {value === 'Mypage' && <Location />} */}
@@ -38,31 +40,34 @@ function Footer() {
         borderTop: "1px solid black",
         margin: "0 auto",
         maxWidth:"1024px"
-      }} showLabels value={value} onChange={handleChange}>
+      }} showLabels value={value}>
         <BottomNavigationAction
           label="Home"
           value="home"
           sx={{maxWidth:"256px", minWidth:"256px", borderRight: "1px solid black" }}
           icon={<HomeRoundedIcon />}
-          onClick={() => handlePageChange('/')}
+          onClick={() => handlePageChange('/boardpage')}
         />
         <BottomNavigationAction
           label="Chatting"
           value="chatting"
           sx={{maxWidth:"256px", minWidth:"256px", borderRight: "1px solid black"}}
           icon={<ForumRoundedIcon />}
+          onClick={() => handlePageChange('/boardpage')}
         />
         <BottomNavigationAction
           label="List"
           value="list"
           sx={{maxWidth:"256px", minWidth:"256px", borderRight: "1px solid black"}}
           icon={<ListRoundedIcon />}
+          onClick={() => handlePageChange('/boardpage')}
         />
         <BottomNavigationAction
           label="Mypage"
           value="mypage"
           sx={{maxWidth:"256px", minWidth:"256px"}}
           icon={<AccountCircleRoundedIcon />}
+          onClick={() => handlePageChange('/mypage')}
         />
         </BottomNavigation>
         </div>

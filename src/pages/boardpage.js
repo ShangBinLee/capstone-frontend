@@ -15,6 +15,8 @@ import Card from './Card.js'
 import Pagenation from './Pagenation.js'
 import BookCard from '../components/BookCard.js';
 import axios from 'axios';
+import Header from '../headfoot/header.js'
+import Footer from '../headfoot/footer.js'
 import {useCookies} from 'react-cookie';
 import DetailInfo from '../components/DetailInfo.js';
 
@@ -37,7 +39,9 @@ export default function Boardpage() {
   }, []);
 
   return (
+    
     <ThemeProvider theme={defaultTheme}>
+      <Header/>
       <main>
         {/* Hero unit */}
         <Container sx={{ py: 8}} maxWidth="md">
@@ -78,7 +82,7 @@ export default function Boardpage() {
           </Grid>
         </Container>
       </main>
-      
+      <Footer/>
     </ThemeProvider>
     
   );
