@@ -1,0 +1,1 @@
+export const rootUrl = 'http://203.247.40.158:8080';
