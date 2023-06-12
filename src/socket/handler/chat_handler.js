@@ -1,6 +1,9 @@
-import { db } from "../../DB/db"
+import { db } from "../../DB/db.js"
 
-const newChatHandler = ({ chat_id : id, ...others }) => {
+const newChatHandler = ({ error_message, chat_id : id, ...others }) => {
+    if(error_message !== undefined) {
+        return alert(error_message);
+    }
     db.chat.put({
         id,
         ...others
