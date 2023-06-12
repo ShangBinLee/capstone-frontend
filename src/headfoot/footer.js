@@ -53,14 +53,14 @@ function Footer() {
           value="chatting"
           sx={{maxWidth:"256px", minWidth:"256px", borderRight: "1px solid black"}}
           icon={<ForumRoundedIcon />}
-          onClick={() => handlePageChange('/boardpage')}
+          onClick={() => handlePageChange('/chat-room/list')}
         />
         <BottomNavigationAction
           label="List"
           value="list"
           sx={{maxWidth:"256px", minWidth:"256px", borderRight: "1px solid black"}}
           icon={<ListRoundedIcon />}
-          onClick={() => handlePageChange('/boardpage')}
+          onClick={() => handlePageChange('')}
         />
         <BottomNavigationAction
           label="Mypage"
