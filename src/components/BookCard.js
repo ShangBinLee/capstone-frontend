@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DetailInfo from './DetailInfo.js';
 import ToggleArrow from './ToggleArrow.js';
 import styles from './BookCard.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const BookCard = ({ bookCardInfo }) => {
     const [opened, setOpened] = useState(false);
