@@ -1,3 +1,5 @@
+import { fetchAPIWithAuth } from "./fetch_api";
+
 const checkLockerUnassigned = (buildingNum, rootUrl) => {
     return fetch(`${rootUrl}/api/web/locker/unassigned`, {
         method : 'POST',
@@ -10,6 +12,11 @@ const checkLockerUnassigned = (buildingNum, rootUrl) => {
     .then((result) => result.data);
 };
 
+const assignLocker = (buyerStudentId, productId, lockerId, rootUrl) => {
+    return fetchAPIWithAuth(`${rootUrl}/api/web/locker/assign/${buyerStudentId}/${productId}/${lockerId}`);
+};
+
 export {
-    checkLockerUnassigned
+    checkLockerUnassigned,
+    assignLocker
 };
