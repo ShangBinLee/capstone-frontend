@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import { socket } from '../socket/socket.js';
 
 const LogoutButton = () => {
     //로그아웃 처리 함수 추가
@@ -10,7 +11,8 @@ const LogoutButton = () => {
         /// 로그아웃 처리 로직 작성
         // 예를 들어, 로컬 스토리지에서 토큰 제거 등
         localStorage.removeItem('authorization');
-
+        
+        socket.disconnect();
         // 로그아웃 후 홈페이지로 이동
         navigate('/');
         
