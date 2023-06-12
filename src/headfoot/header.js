@@ -64,7 +64,7 @@ function Header() {
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block', fontSize:"30px"} }}
             >
-              <Link href="/">BIT</Link>
+              <Link href="/boardpage">BIT</Link>
             </Typography>
             <Search>
               <SearchIconWrapper>

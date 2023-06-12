@@ -30,8 +30,8 @@ ReactDOM.render(
           <Route exact path="/emailauthrequ" element={<Emailauthrequ/>} />
           <Route path="/emailauthnum" element={<Emailauthnum/>} />
           <Route path="/signup" element={<Signup/>} />
-          <Route path="/boardpage" element={<Boardpage bookCardInfo={bookCardInfoSample}/>} />
-          <Route path="/detail" element={<Detail/>}/>
+          <Route path="/boardpage" element={<Boardpage rootUrl={rootUrl}/>} />
+          <Route path="/detail/:productId" element={<Detail rootUrl={rootUrl}/>}/>
           <Route path="/mypage" element={<Mypage/>}/>
           <Route path="/mypage/buy/list" element={<MyBuyOrderList rootUrl={rootUrl}/>}/>
           <Route path="/mypage/sale/list" element={<MySaleOrderList rootUrl={rootUrl}/>}/>

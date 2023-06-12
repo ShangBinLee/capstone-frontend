@@ -17,24 +17,22 @@ import BookCard from '../components/BookCard.js';
 import axios from 'axios';
 import Header from '../headfoot/header.js'
 import Footer from '../headfoot/footer.js'
-import {useCookies} from 'react-cookie';
-import DetailInfo from '../components/DetailInfo.js';
-
-// const cards = [1, 2, 3, 4, 5, 6, 7, 8];
+import {fetchSellerProductsAll, fetchProduct, fetchMyProductsAll} from '../lib/fetch_product.js'
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
+// const SellerProductsAll  = fetchSellerProductsAll();
 
 
-export default function Boardpage() {
+export default function Boardpage({rootUrl}) {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
     const aaa = async () => {
-      const result = await axios.get('http://203.247.40.158:8080/api/saleproduct/find/all', {"Content-Type": 'application/json'});
-      setProducts(result.data.data);
+      const allproducts = await fetchSellerProductsAll(rootUrl);
+      setProducts(allproducts);
     };
-  
+
     aaa();
   }, []);
 
@@ -52,7 +50,7 @@ export default function Boardpage() {
                 infoText : {
                   title : product.title,
                   author : product.studentId,
-                  price : 15000,
+                  price : product.amount,
                   date : product.create_date
                 },
                 img : {
@@ -65,12 +63,18 @@ export default function Boardpage() {
                 department : "",
                 lecture : "",
                 professor : "",
-                seller : "신현수"
+                seller : {
+                  name:"신현수",
+                  rating:0
+                }
               }
+
+              const productId = product.id;
 
               const bookCardInfo = {
                 mainInfo,
-                detailInfo
+                detailInfo,
+                productId
               }
               return (
               <Grid item key={product.id} xs={12} sm={3} md={6}>
