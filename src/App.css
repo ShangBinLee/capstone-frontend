@@ -32,7 +32,7 @@ li:first-child{
 
 main {
     max-width: 1024px;
-    /* max-height: 1131px; */
+    height: 1131px;
     align-items: center;
 }
 
@@ -90,11 +90,11 @@ main {
 }
 
 .app-router {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
 
   /* detailpagecss */
   
