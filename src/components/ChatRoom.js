@@ -1,6 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
+import styles from './ChatRoom.module.css';
 
 const ChatRoom = ({ chatRoomInfo }) => {
     const {
@@ -46,15 +47,15 @@ const ChatRoom = ({ chatRoomInfo }) => {
     })();
 
     return (
-        <Link to={`../${chat_room_id}`} relative='path'>
-            <div>
-                <img src={imgUrl} alt=""></img>
-                <div>
+        <Link className={styles.link} to={`../${chat_room_id}`} relative='path'>
+            <div className={styles.chat_room}>
+                <img src={imgUrl} width="125" height="120" alt=""></img>
+                <div className={styles.chat_info}>
                     <p>{name}</p>
                     <p>{title}</p>
                     <p>{chat_content}</p>
                 </div>
-                <div>
+                <div className={styles.date}>
                     <p>{dateString}</p>
                 </div>
             </div>
