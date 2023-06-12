@@ -17,9 +17,9 @@ import Searchpage from './pages/Searchpage.js';
 import Detail from './pages/Detailpage.js';
 import ReactDOM from 'react-dom';
 import Mypage from './pages/Mypage';
-import MyBuyOrder from './components/MyBuyOrder.js';
-import MySaleOrder from './components/MySaleOrder.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MySaleOrderList from './components/MySaleOrderList.js';
+import MyBuyOrderList from './components/MyBuyOrderList.js'
 // import Card from "./pages/Card.js"
 
 ReactDOM.render(
@@ -33,10 +33,8 @@ ReactDOM.render(
           <Route path="/boardpage" element={<Boardpage bookCardInfo={bookCardInfoSample}/>} />
           <Route path="/detail" element={<Detail/>}/>
           <Route path="/mypage" element={<Mypage/>}/>
-            <Route path="order">
-              <Route path="buy/list" element={<MyBuyOrder rootUrl={rootUrl}/>}></Route>
-              <Route path="sale/list" element={<MySaleOrder rootUrl={rootUrl}/>}></Route>
-            </Route>
+          <Route path="/mypage/buy/list" element={<MyBuyOrderList rootUrl={rootUrl}/>}/>
+          <Route path="/mypage/sale/list" element={<MySaleOrderList rootUrl={rootUrl}/>}/>
         </Routes>
       </div>
     </Router>
