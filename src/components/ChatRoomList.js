@@ -4,8 +4,11 @@ import { db } from '../DB/db.js';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { fetchProduct } from '../lib/fetch_product.js';
 import { fetchUserOfStudentId } from '../lib/fetch_user.js';
+import Footer from '../headfoot/footer.js';
+import Header from '../headfoot/header.js';
+import styles from './ChatRoomList.module.css';
 
-const ChatRoomList = ({ userName, rootUrl }) => {
+const ChatRoomList = ({ rootUrl }) => {
     const chatRoomInfos = useLiveQuery(async () => {
         const chatRooms = await db.chat_room.orderBy('modified_date').toArray();
 
@@ -37,7 +40,7 @@ const ChatRoomList = ({ userName, rootUrl }) => {
 
                 // 상품 판매자 정보 fetch
                 const {
-                    userName : sellerName
+                    userName : otherUserName
                 } = await fetchUserOfStudentId(studentId, rootUrl).catch((err) => {
                     if(err instanceof Error) {
                         throw err;
@@ -50,11 +53,6 @@ const ChatRoomList = ({ userName, rootUrl }) => {
                         };
                     }
                 });
-
-                // 본인이 판매자일 경우 구매자의 정보를 알아야 함
-
-                // 구매자 채팅방만 일단 구현
-                const otherUserName = sellerName === userName ? null : sellerName;
 
                 const chats = await db.chat
                 .where('chat_room_id')
@@ -92,7 +90,28 @@ const ChatRoomList = ({ userName, rootUrl }) => {
         );
     });
 
-    return chatRoomInfos?.map((roomInfo) => <ChatRoom chatRoomInfo={roomInfo} />);
+    if(chatRoomInfos?.length > 0) {
+        return (
+            <body>
+            <Header/>
+            <main className={styles.wrapper}>
+            {
+                chatRoomInfos.map((roomInfo) => <ChatRoom chatRoomInfo={roomInfo} />)
+            }
+            </main>
+            <Footer/>
+            </body>
+        );
+    } else {
+        return (
+            <body>
+            <Header/>
+            <main className={styles.wrapper}></main>
+            <Footer/>
+            </body>
+        );
+    }
+    
 };
 
 export default ChatRoomList;
