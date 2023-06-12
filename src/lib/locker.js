@@ -6,7 +6,10 @@ const checkLockerUnassigned = (buildingNum, rootUrl) => {
         headers : {
             'Content-Type' : 'application/json',
             'Authorization' : localStorage.getItem('authorization')
-        }
+        },
+        body : JSON.stringify({
+            buildingNum
+        })
     })
     .then((res) => res.json())
     .then((result) => result.data);
