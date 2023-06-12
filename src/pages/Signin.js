@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-// import { Link } from 'react-router-dom';
-// import Link from '@mui/material/Link';
-import { Link, useNavigate, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -11,14 +9,13 @@ import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import axios from 'axios';
-import {useCookies} from 'react-cookie';
+import { connect } from '../socket/connect';
 
-const Signin=({history})=>{
+const Signin=({rootUrl})=>{
   // const goToPage= () => {
   //   window.location.href = <Emailauthrequ/>;
   // };
   const navigate = useNavigate();
-  const [cookies] = useCookies();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -39,18 +36,20 @@ const Signin=({history})=>{
     }
 
     // 로그인 요청
-    axios.post('http://203.247.40.158:8080/api/login', data, {"Content-Type": 'application/json'})
+    axios.post(`${rootUrl}/api/login`, data, {"Content-Type": 'application/json'})
       .then((response) => {
         if(response.status === 200){
         // 홈 페이지로 이동
         // history.push('/');
         const authorizationHeader = response.headers.get('Authorization');
         localStorage.setItem('authorization', authorizationHeader);
+        // 소켓 서버 연결
+        connect();
           navigate('/boardpage');
         }
       })
       .catch((error) => {
-        console.error('로그인 중 오류가 발생했습니다:', error);
+        alert('로그인 중 오류가 발생했습니다:', error);
       });
   };
 
