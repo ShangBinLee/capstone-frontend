@@ -1,3 +1,4 @@
+import { rootUrl } from './config.js';
 import React from 'react'
 import "./App.css"
 import Grid from '@mui/material/Grid';
@@ -32,16 +33,10 @@ ReactDOM.render(
           <Route path="/boardpage" element={<Boardpage bookCardInfo={bookCardInfoSample}/>} />
           <Route path="/detail" element={<Detail/>}/>
           <Route path="/mypage" element={<Mypage/>}/>
-          <Route path="/MyBuyOrder" element={<MyBuyOrder orderInfo={{title : "스즈메의 문단속 소설책 팝니다 미지근한 신상",
-  saleProductName : "스즈메의 문단속",
-  price : 12000,
-  orderState : "거래 중",
-  date : "2023-06-12"}} />}/>
-          <Route path="/MySaleOrder" element={<MySaleOrder orderInfo={{title : "스즈메의 문단속 소설책 팝니다 미지근한 신상",
-  saleProductName : "스즈메의 문단속",
-  price : 12000,
-  orderState : "판매 중",
-  date : "2023-06-12"}}/>}/>
+            <Route path="order">
+              <Route path="buy/list" element={<MyBuyOrder rootUrl={rootUrl}/>}></Route>
+              <Route path="sale/list" element={<MySaleOrder rootUrl={rootUrl}/>}></Route>
+            </Route>
         </Routes>
       </div>
     </Router>
