@@ -1,6 +1,6 @@
-import { fetchMyProductsAll } from "../lib/fetch_product"
+import { fetchMyProductsAll } from "../lib/fetch_product.js"
 import { socket } from "./socket.js";
-import { db } from "../DB/db";
+import { db } from "../DB/db.js";
 
 const connectChatRooms = async (rootUrl) => {
     const eventName = 'connect_chat_rooms';

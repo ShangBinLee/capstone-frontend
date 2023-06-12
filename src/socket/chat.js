@@ -1,4 +1,4 @@
-import { socket } from "./socket";
+import { socket } from "./socket.js";
 
 const sendNewChat = (chatRoomId, chatContent) => {
     const eventName = 'new_chat';
