@@ -1,7 +1,10 @@
-import { socket } from "./socket"
+import { socket } from "./socket.js"
 
 const connect = () => {
-    socket.auth.token = localStorage.getItem('authorizaton');
+    socket.auth = {
+        token : localStorage.getItem('authorization')
+    };
+
     socket.connect();
 };
 
