@@ -1,33 +1,31 @@
-import { React, useEffect, useState } from 'react';
+import { React } from 'react';
+import styles from './MyOrder.module.css';
 
 const MyBuyOrder = ({orderInfo}) => {
     const {
+        create_date,
+        imgUrl,
         title,
         saleProductName,
-        imgUrl,
-        price,
-        orderState,
-        date
+        offerPrice,
     } = orderInfo;
 
     return (
-        <div style={{display: "flex", alignItems:"center", border: "1px solid black", width:"876px", height:"157px", paddingLeft:"16px"}}>
-            <div style={{display: "block", alignItems: "center"}}>
-                <span style={{display:"block", textAlign:"center", marginBottom: '8px'}}>거래 시작 날짜</span>
-                <span style={{display:"block", textAlign:"center", marginBottom: '8px'}} >{date}</span>
+        <div className={styles.wrapper}>
+            <div className={styles.date}>
+                <span>거래 시작 날짜</span>
+                <span>{create_date}</span>
             </div>
-            <div style={{display:"flex", alignItems: "center", marginLeft:"16px"}}> 
-                <img src={imgUrl} alt='' width="121" height="133" style={{justifyContent: "space-between", margin: '0 16px 0 16px'}}></img>
-                <div style={{marginLeft:"16px"}}>
-                    <p>{title}</p>
+            <div className={styles.main_info}> 
+                <img src={imgUrl} alt='' width="121" height="133"></img>
+                <div>
+                    <p className={styles.title}>{title}</p>
                     <p>{saleProductName}</p>
-                    <p>{price}</p>
+                    <p>{offerPrice}</p>
                 </div>
             </div>
-            <div style={{display:"block", alignItems:"center", marginLeft:"130px"}}>
-                <span style={{display:"block", textAlign:"center", marginBottom: '8px'}}>{orderState}</span>
-                <span style={{display:"block", textAlign:"center",marginBottom: '8px'}}>사물함</span>
-                <button style={{marginLeft: '8px', padding: '8px 16px', backgroundColor: 'black', border: 'none', color: 'white', cursor: 'pointer',}}>확인하기</button>
+            <div className={styles.locker}>
+                <span>구매 완료</span>
             </div>
         </div>
     );
