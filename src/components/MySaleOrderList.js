@@ -3,6 +3,8 @@ import MySaleOrder from "./MySaleOrder.js";
 import { fetchMyProductsAll } from "../lib/fetch_product.js";
 import { fetchMySaleOrder } from "../lib/fetch_order.js";
 import styles from './MyOrderList.module.css';
+import Header from "../headfoot/header.js";
+import Footer from "../headfoot/footer.js";
 
 const MySaleOrderList = ({ rootUrl }) => {
     const [ orders, setOrders ] = useState([]);
@@ -32,9 +34,13 @@ const MySaleOrderList = ({ rootUrl }) => {
     }, []);
 
     return (
-        <div className={styles.wrapper}>
-            {orders.map((order) => <MySaleOrder orderInfo={order} />)}
-        </div>
+        <body>
+            <Header/>
+            <div className={styles.wrapper}>
+                {orders.map((order) => <MySaleOrder orderInfo={order} />)}
+            </div>
+            <Footer/>
+        </body>
     );  
 };
 
