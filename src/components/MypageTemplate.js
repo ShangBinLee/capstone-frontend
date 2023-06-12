@@ -1,14 +1,15 @@
 import React from 'react';
 import MyPageForm from './MypageForm.js';
 
-const MyPageTemplate = ({ children }) => {
+const MyPageTemplate = ({ userName }) => {
     const myPageTemplateBlockStyles = {
         background: '#f1f1f1',
         padding: '0',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        width: "1024px"
+        width: "1024px",
+        height:"1131px"
       };
       
       const whiteBoxStyles = {
@@ -23,7 +24,7 @@ const MyPageTemplate = ({ children }) => {
   return (
     <div style={myPageTemplateBlockStyles}>
       <div style={whiteBoxStyles}>
-        <MyPageForm/>
+        <MyPageForm userName={userName}/>
       </div>
     </div>
   );
