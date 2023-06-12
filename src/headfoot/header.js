@@ -51,7 +51,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function Header() {
     return (
-        <AppBar position="fixed" sx={{backgroundColor:"#A41E44", maxWidth:"1024px", margin:"0 auto", padding:"0 50px 0 0px", left:0, right:0, boxShadow:"none"}}>
+        <AppBar sx={{position:'static', backgroundColor:"#A41E44", maxWidth:"1024px", margin:"0 auto", padding:"0 50px 0 0px", left:0, right:0, boxShadow:"none"}}>
           <Toolbar sx={{
             margin: "0 auto",
             height:"110px", 
