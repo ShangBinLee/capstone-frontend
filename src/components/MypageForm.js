@@ -4,7 +4,7 @@ import LogoutBox from './Logoutbox.js';
 // import { Link, withRouter } from 'react-router-dom';
 import { Link} from 'react-router-dom';
 
-const MyPageForm = () => {
+const MyPageForm = ({userName}) => {
 
       const myPageFormBlockStyles = {
         width: '100%',
@@ -45,7 +45,7 @@ const MyPageForm = () => {
         <tr style={lineBlockStyles}>
           <td style={fullLineStyles}>
             <div style={textBoxStyles}>
-              안녕하세요 <b>nickname</b> 님!
+              안녕하세요 <b>{userName}</b> 님!
             </div>
             <div style={logoutBoxStyles}>
                 <LogoutBox>
